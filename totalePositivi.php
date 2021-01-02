@@ -8,9 +8,6 @@
   }
 
   $totalePositivi = array();
-  $nuoviPositivi = array();
-  $rapportoPositiviSuTamponi = array();
-
   $handler = 0;
 
   for($i = 10; $i > 0; $i--) {
@@ -95,8 +92,6 @@
 </head>
 
 <body>
-  <!-- The drawer is always open in large screens. The header is always shown,
-    even in small screens. -->
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
               mdl-layout--fixed-header">
     <header class="mdl-layout__header">
@@ -107,13 +102,13 @@
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">covidDataTracker</span>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Homepage</a>
+        <a class="mdl-navigation__link" href="index.php">Homepage</a>
       </nav>
     </div>
     <main class="mdl-layout__content">
       <div class="page-content">
         <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--10-col">
+          <div class="mdl-cell mdl-cell--12-col">
             <div class="mdl-card--border mdl-shadow--4dp">
               <div id="chartContainer" style="height: 400px; width: 100%;"></div>
             </div>

@@ -97,6 +97,5 @@
 
 <body>
   <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-  <button><a href="index.html"ciao<a></button>
 </body>
 </html>
