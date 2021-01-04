@@ -80,7 +80,7 @@
         <a class="mdl-navigation__link" href="totaleDeceduti.php">Resoconto totale deceduti</a>
         <a class="mdl-navigation__link" href="totaleTamponi.php">Resoconto totale tamponi</a>
         <a class="mdl-navigation__link" href="nuoviPositivi.php">Resoconto nuovi positivi</a>
-        <a class="mdl-navigation__link" href="nuoviDeceduti.php">Resoconto deceduti giotnalieri</a>
+        <a class="mdl-navigation__link" href="nuoviDeceduti.php">Resoconto deceduti giornalieri</a>
         <a class="mdl-navigation__link" href="nuoviTamponi.php">Resoconto tamponi giornalieri</a>
         <a class="mdl-navigation__link" href="percentualeTamponi.php">Resoconto percentuale positività</a>
         <a class="mdl-navigation__link" href="terapiaIntensiva.php">Resoconto terapia intensiva</a>
