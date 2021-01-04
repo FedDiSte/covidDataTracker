@@ -86,7 +86,7 @@
         data: [{
           type: "column",
           name: "Tamponi",
-          legendText: "tamponi effettuati oggi",
+          legendText: "Tamponi effettuati oggi",
           showInLegend: true,
           dataPoints:<?php echo json_encode($nuoviTamponi, JSON_NUMERIC_CHECK); ?>
         }]

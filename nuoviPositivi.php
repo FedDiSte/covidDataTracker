@@ -85,8 +85,8 @@
         },
         data: [{
           type: "column",
-          name: "Deceduti",
-          legendText: "Deceduti nella giornata",
+          name: "Positivi",
+          legendText: "Nuovi positivi",
           showInLegend: true,
           dataPoints:<?php echo json_encode($nuoviPositivi, JSON_NUMERIC_CHECK); ?>
         }]
@@ -117,7 +117,7 @@
       <span class="mdl-layout-title">covidDataTracker</span>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="index.php">Homepage</a>
-        <a class="mdl-navigation__link" href="totalePositvi.php">Resoconto totale positivi</a>
+        <a class="mdl-navigation__link" href="totalePositivi.php">Resoconto totale positivi</a>
         <a class="mdl-navigation__link" href="totaleDeceduti.php">Resoconto totale deceduti</a>
         <a class="mdl-navigation__link" href="totaleTamponi.php">Resoconto totale tamponi</a>
         <a class="mdl-navigation__link" href="nuoviPositivi.php">Resoconto nuovi positivi</a>
