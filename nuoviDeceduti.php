@@ -7,10 +7,10 @@
     echo "<script>console.log('Logging: ".$output."' );</script>";
   }
 
-  $totalePositivi = array();
+  $dataDati = array();
   $handler = 0;
 
-  for($i = 10; $i > 0; $i--) {
+  for($i = 11; $i > 0; $i--) {
     $curl = curl_init();
     $file = fopen('creato.csv', 'w');
     if(strtotime(date("H:i")) > strtotime("17:00")) {
@@ -34,20 +34,33 @@
     }
 
     logger("Data: ".$datiLetti[1][0]);
-    $dataDati = date("d/m/Y" ,strtotime($datiLetti[1][0]));
-    $totalePositivi[$handler] = array("y" => $datiLetti[1][6], "label" => $dataDati);
+
+    $dataDati[$handler] = date("d/m/Y" ,strtotime($datiLetti[1][0]));
+    $deceduti[$handler] = $datiLetti[1][10];
     $handler++;
+  }
+
+  for($i = 0; $i < 10; $i++) {
+    $calcolato = $deceduti[$i + 1] - $deceduti[$i];
+    $nuoviDeceduti[$i] = array("y" => $calcolato, "label" => $dataDati[$i + 1]);
   }
 
 ?>
 
 <!DOCTYPE HTML>
-<html>
+<html lang="it">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="mdl/material.min.css">
-  <script src="mdl/material.min.js"></script>
+  <title>covidDataTracker</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-pink.min.css"/> 
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    .card-square > .mdl-card__title {
+      color: #000;
+      background: #8eacbb;
+    }
+  </style>
   <script src = "https://canvasjs.com/assets/script/canvasjs.min.js">
   </script>
   <script>
@@ -56,7 +69,7 @@
         animationEnabled: true,
         theme: "light2",
         axisY: {
-          title: "Positivi",
+          title: "Nuovi deceduti",
           titleFontColor: "#4F81BC",
           lineColor: "#CF1606",
           labelFontColor:"#4F81BC",
@@ -71,10 +84,10 @@
         },
         data: [{
           type: "column",
-          name: "Positvi",
-          legendText: "Positivi",
+          name: "Positivi",
+          legendText: "Deceduti",
           showInLegend: true,
-          dataPoints:<?php echo json_encode($totalePositivi, JSON_NUMERIC_CHECK); ?>
+          dataPoints:<?php echo json_encode($nuoviDeceduti, JSON_NUMERIC_CHECK); ?>
         }]
       });
       chart.render();
@@ -96,7 +109,7 @@
               mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Totale positivi</span>
+        <span class="mdl-layout-title">Nuovi deceduti</span>
       </div>
     </header>
     <div class="mdl-layout__drawer">
@@ -123,8 +136,7 @@
           </div>
       </div>
     </main>
-  </div>
-  <footer class="mdl-mini-footer">
+    <footer class="mdl-mini-footer">
         <div class="mdl-mini-footer__right-section">
           <div class="mdl-logo">covidDataTracker</div>
             <ul class="mdl-mini-footer__link-list">
@@ -133,5 +145,6 @@
             </ul>
           </div>
       </footer>
+  </div>
 </body>
 </html>
