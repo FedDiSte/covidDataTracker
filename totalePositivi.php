@@ -42,8 +42,9 @@
 ?>
 
 <!DOCTYPE HTML>
-<html>
+<html lang="it">
 <head>
+  <title>covidDataTracker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="mdl/material.min.css">
   <script src="mdl/material.min.js"></script>
